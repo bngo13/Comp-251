@@ -1,0 +1,6 @@
+Problem 1:
+	Based on the trend of the points, I predict that the function minimizes at point (0, 0)
+Problem 2:
+	Based on the trend of the points, I predict the function will minimize at point (1.41, 0.18)
+Problem 3:
+	Based on the trend of the points, I preict the function will minimize at point (0.98, -1.93, -0.98)
