@@ -1,9 +1,17 @@
 function Algorithm4(X, y, theta0, theta1)
-    percentChange = 0.01;
-    iterations = 1000;
+% Constants
+    percentChange = 0.00005;
+    iterations = 3000;
+% The pain begins
     for I = 1:iterations
         fprintf("Initial point is: [t0 %.2f, t1 %.2f]\n", theta0, theta1);
 
+        %{
+        Equations:
+        h(x) = theta1 * x * theta0
+        gradient1 = Summation(2 * (h(X[i]) - y[i]) * X[i])
+        gradient0 = Summation(2 * (h(X[i]) - y[i]))
+        %}
         gradient1 = 0;
         for i = 1:length(X)
             h = theta1 * X(i) + theta0;
