@@ -4,22 +4,16 @@ function theta = gradientDescent(X, y, theta, alpha, num_iters)
 %   taking num_iters gradient steps with learning rate alpha
 
 % Initialize some useful values
-m = length(y); % number of training examples
+    for iter = 1:num_iters
+    
+        % ====================== YOUR CODE HERE ======================
+        % Instructions: Perform a single gradient step on the parameter vector
+        %               theta. 
+        %
+        h = (X * theta);
 
-for iter = 1:num_iters
-
-    % ====================== YOUR CODE HERE ======================
-    % Instructions: Perform a single gradient step on the parameter vector
-    %               theta. 
-    %
-
-
-
-
-
-
-    % ============================================================
-
-end
-
+        theta = theta - alpha * 2 * X' * (h - y);
+        % ============================================================
+    
+    end
 end
