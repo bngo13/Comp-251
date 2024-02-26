@@ -14,14 +14,12 @@ for iter = 1:num_iters
     %
 
 
-
-
-
-
-
-
-
-
+    % Calculate all of h(x)
+    h = (X * theta);
+    % Calculate coefficient * (h(x) - y)
+    gradient = X' * (h - y);
+    % Update thetas
+    theta = theta - (2 * alpha * gradient);
 
     % ============================================================
 
