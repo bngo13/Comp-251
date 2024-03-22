@@ -16,7 +16,14 @@ p = zeros(m, 1);
 %
 
 
+probs = sigmoid(X * theta);
 
+for i = 1:m
+    p(i) = 0;
+    if (probs(i) >= .5)
+        p(i) = 1;
+    end
+end
 
 
 
