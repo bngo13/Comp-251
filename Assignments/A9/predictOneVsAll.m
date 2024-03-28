@@ -31,7 +31,8 @@ X = [ones(m, 1) X];
 %       
 
 
-
+predictionMatrix = sigmoid(X * all_theta);
+[~, p] = max(predictionMatrix, [], 2);
 
 
 
