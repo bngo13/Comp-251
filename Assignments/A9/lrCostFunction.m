@@ -4,12 +4,13 @@ function [J, grad] = lrCostFunction(theta, X, y)
 %   theta as the parameter for logistic regression and the
 %   gradient of the cost w.r.t. the parameters. 
 
-% Initialize some useful values
-m = length(y); % number of training examples
-
 % You need to return the following variables correctly 
-J = 0;
-grad = zeros(size(theta));
+h = sigmoid(X * theta);
+
+Jmatrix = (-y .* log(h)) - ((1 - y) .* log(1-h));
+J = sum(Jmatrix);
+
+grad = X' * (h - y);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
