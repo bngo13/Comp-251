@@ -17,6 +17,7 @@ Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):en
 
 % Setup some useful variables
 m = size(X, 1);
+num_labels = size(Theta2, 1);
          
 % You need to return the following variables correctly 
 J = 0;
@@ -50,23 +51,27 @@ Theta2_grad = zeros(size(Theta2));
 
 % transpose X and y
 % calculating labels in vector format based on observed labels in y
-
-
+X = X';
+y = y';
+yVec = y == (1:num_labels)';
 % loop over examples in X and calculate and accumulate the cost and gradient
 % for each point x(i) at a time
-for i = 1:m
-    % calculating h(x(i))
-    
-    
-    
-    % calculating cost
+% forward propogate before
+a1 = [ones(1, size(X, 2)); X];
 
-    
-    
-    % back propagation implementation
-end
+a2 = sigmoid(Theta1 * a1);
+a2 = [ones(1, size(X, 2)); a2];
 
+a3 = sigmoid(Theta2 * a2);
+h = a3;
 
+J = sum(sum(-yVec .* log(h(:, :)) - (1 - yVec).* log(1-h(:, :))));
+
+delta3 = h - yVec;
+delta2 = ((Theta2)' * delta3) .* a2 .* (1 - a2);
+
+Theta2_grad = Theta2_grad + (delta3 * (a2)');
+Theta1_grad = Theta1_grad + (delta2(2:end, :) * (a1)');
 
 % =========================================================================
 

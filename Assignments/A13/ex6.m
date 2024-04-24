@@ -112,7 +112,7 @@ initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 
 %  After you have completed the assignment, change the MaxIter to a larger
 %  value to see how more training affects the learning algorithm.
-options = optimset('MaxIter', 75);
+options = optimset('UseParallel', true, 'MaxIter', 1000);
 
 % calling fmincg(kind of like a built-in gradient descent
 [nn_params, cost] = fmincg(@(t) nnCostFunction(t, input_layer_size, hidden_layer_size, num_labels, X, y), initial_nn_params, options);
